@@ -46,19 +46,19 @@ describe('<Product />', () => {
     spy.reset();
   });
 
-  describe('`name` prop', function () {
-    it('should be required', function () {
-      shallow(<Product {...ALL_PROPS_VALID} name={undefined} />);
-      expect(isRequiredPropTypeError(spy, 'name')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
-    });
-
-    it('should have the right propType', function () {
-      shallow(<Product {...ALL_PROPS_VALID} />);
-      expect(spy.called).toBeFalsy(ERRORS.NOT_RIGHT_TYPE);
-      shallow(<Product {...ALL_PROPS_VALID} name={5} />);
-      expect(isInvalidPropTypeError(spy, 'name')).toBeTruthy(ERRORS.NOT_RIGHT_TYPE);
-    });
-  });
+  // describe('`name` prop', function () {
+  //   it('should be required', function () {
+  //     shallow(<Product {...ALL_PROPS_VALID} name={undefined} />);
+  //     expect(isRequiredPropTypeError(spy, 'name')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
+  //   });
+  //
+  //   it('should have the right propType', function () {
+  //     shallow(<Product {...ALL_PROPS_VALID} />);
+  //     expect(spy.called).toBeFalsy(ERRORS.NOT_RIGHT_TYPE);
+  //     shallow(<Product {...ALL_PROPS_VALID} name={5} />);
+  //     expect(isInvalidPropTypeError(spy, 'name')).toBeTruthy(ERRORS.NOT_RIGHT_TYPE);
+  //   });
+  // });
 
   describe('`producer` prop', function () {
     it('should be optional', function () {
@@ -92,21 +92,21 @@ describe('<Product />', () => {
     });
   });
 
-  describe('`color` prop', function () {
-    it('should be required', function () {
-      shallow(<Product {...ALL_PROPS_VALID} color={undefined} />);
-      expect(isRequiredPropTypeError(spy, 'color')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
-    });
-
-    it('should only allow the right values', function () {
-      shallow(<Product {...ALL_PROPS_VALID} color={'white'} />);
-      expect(spy.called).toBeFalsy('The `color` propType is not accepting a valid value.');
-      shallow(<Product {...ALL_PROPS_VALID} color={'somethingelse'} />);
-      expect(spy.callCount).toEqual(1, 'The `color` propType is accepting an invalid value.');
-      shallow(<Product {...ALL_PROPS_VALID} color={5} />);
-      expect(spy.callCount).toEqual(2, 'The `color` propType is accepting an invalid value.');
-    });
-  });
+  // describe('`color` prop', function () {
+  //   it('should be required', function () {
+  //     shallow(<Product {...ALL_PROPS_VALID} color={undefined} />);
+  //     expect(isRequiredPropTypeError(spy, 'color')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
+  //   });
+  //
+  //   it('should only allow the right values', function () {
+  //     shallow(<Product {...ALL_PROPS_VALID} color={'white'} />);
+  //     expect(spy.called).toBeFalsy('The `color` propType is not accepting a valid value.');
+  //     shallow(<Product {...ALL_PROPS_VALID} color={'somethingelse'} />);
+  //     expect(spy.callCount).toEqual(1, 'The `color` propType is accepting an invalid value.');
+  //     shallow(<Product {...ALL_PROPS_VALID} color={5} />);
+  //     expect(spy.callCount).toEqual(2, 'The `color` propType is accepting an invalid value.');
+  //   });
+  // });
 
   describe('`weight` prop', function () {
     it('should be required', function () {
